@@ -4,6 +4,7 @@ public class Funcionario {
 	private String nome;
 	private String cpf;
 	private double salario;
+	//protected double salario;//protected deixa publico para que herda da classe Funcionario
 	
 	public Funcionario(String nome, String cpf, double salario) {
 		super();
@@ -12,7 +13,7 @@ public class Funcionario {
 		this.salario = salario;
 	}
 
-	public double getbonificacaio() {
+	public double getbonificacao() {
 		return this.salario * 0.1;
 	}
 	
