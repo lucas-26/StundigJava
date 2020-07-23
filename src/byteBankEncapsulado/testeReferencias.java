@@ -1,4 +1,4 @@
-package estudojava;
+package byteBankEncapsulado;
 
 public class testeReferencias {
 	public static void main(String[] args) {

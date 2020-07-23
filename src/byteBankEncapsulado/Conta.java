@@ -1,4 +1,4 @@
-package estudojava;
+package byteBankEncapsulado;
 
 public class Conta { //Uma classe contem atributos(Caracteristica de um objeto) e comportamentos
 	
@@ -9,7 +9,7 @@ public class Conta { //Uma classe contem atributos(Caracteristica de um objeto) 
 	private static int totalContas;
 	
 	public Conta(double saldo, int agencia, int numero, Titular titular) {
-		
+		totalContas++;
 		this.saldo = saldo;
 		this.agencia = agencia;
 		this.numero = numero;
