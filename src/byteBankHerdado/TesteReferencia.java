@@ -21,6 +21,11 @@ public class TesteReferencia {
 		
 		cont.getSoma();
 		
+		Designer de = new Designer("pedro", "41991112312", 250);
+		de.getbonificacao();
+		
+		cont.registra(de);
+		
 	}
 
 }
