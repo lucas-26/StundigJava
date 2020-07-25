@@ -7,7 +7,8 @@ public class EditorDeVideo extends Funcionario{
 		
 	}
 
-	public double getBonificacao() {
-		return super.getbonificacao() + 100;
+	@Override
+	public double getbonificacao() {
+		return super.getSalario() + 100;
 	}
 }

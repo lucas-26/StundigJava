@@ -6,10 +6,10 @@ public class Designer extends Funcionario{
 		super(nome, cpf, salario);
 		// TODO Auto-generated constructor stub
 	}
-	
+
 	@Override
 	public double getbonificacao() {
-		return super.getbonificacao() + 300;
+		return super.getSalario() + 300;
 	}
 
 }

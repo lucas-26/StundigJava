@@ -3,7 +3,7 @@ package byteBankHerdado;
 public class TesteReferencia {
 	
 	public static void main(String[] args) {
-		Funcionario f1 = new Funcionario("valdecir", "12721112123", 9111);
+		Gerente f1 = new Gerente("valdecir", "12721112123", 9111);
 		
 		Gerente G2 = new Gerente("valdecir", "12721112123", 9111);
 		
@@ -12,7 +12,7 @@ public class TesteReferencia {
 		f1.setNome("Augusto");
 		String nome = f1.getNome();
 		
-		((Gerente) f1).autentica(222);
+		f1.autentica(222);
 		
 		ControleBonificacao cont = new ControleBonificacao();
 		cont.registra(G2);

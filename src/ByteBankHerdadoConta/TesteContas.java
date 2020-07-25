@@ -13,6 +13,6 @@ public class TesteContas {
 		
 		System.out.println(cc.getSaldo());
 		System.out.println(cp.getSaldo());
-		cc.saca(10);//teste
+		cc.saca(10);
 	}
 }
