@@ -12,5 +12,11 @@ public class ContaPoupanca extends Conta{
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public double getValorImposto() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 	
 }

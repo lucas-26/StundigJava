@@ -1,6 +1,6 @@
 package ByteBankHerdadoConta;
 
-public abstract class Conta {
+public abstract class Conta implements Tributavel {
 
     private double saldo;
     private int agencia;

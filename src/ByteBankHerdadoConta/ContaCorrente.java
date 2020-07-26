@@ -18,4 +18,9 @@ public class ContaCorrente extends Conta{
 		double returnValue = super.getSaldo() + valor;
 	}
 
+	@Override
+	public double getValorImposto() {
+		return super.getSaldo() * 0.01; 
+	}
+
 }
