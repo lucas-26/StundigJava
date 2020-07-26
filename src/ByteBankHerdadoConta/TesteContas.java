@@ -8,11 +8,22 @@ public class TesteContas {
 		
 		ContaPoupanca cp = new ContaPoupanca(123, 9771);
 		cp.deposita(7121);
+		try {
+			cc.transfere(60, cp);
+		}
+		catch (Exception e) {
+			
+		}
 		
-		cc.transfere(60, cp);
 		
 		System.out.println(cc.getSaldo());
 		System.out.println(cp.getSaldo());
-		cc.saca(10);
+		try {
+			cc.saca(10);
+		}
+		catch (Exception e) {
+			
+		}
+		
 	}
 }

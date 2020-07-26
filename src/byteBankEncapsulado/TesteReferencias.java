@@ -1,6 +1,6 @@
 package byteBankEncapsulado;
 
-public class testeReferencias {
+public class TesteReferencias {
 	public static void main(String[] args) {
 		Titular luan = new Titular("Lucas","98112221761","dev");
 		Conta primeiraConta = new Conta(199, 87, 1241, luan);// referencia apontando para um tipo conta

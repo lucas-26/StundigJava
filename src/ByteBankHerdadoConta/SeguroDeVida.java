@@ -1,6 +1,6 @@
 package ByteBankHerdadoConta;
 
-public class seguroDeVida implements Tributavel{
+public class SeguroDeVida implements Tributavel{
 
 	@Override
 	public double getValorImposto() {

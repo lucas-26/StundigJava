@@ -1,5 +1,5 @@
 package byteBankEncapsulado;
 
-public class herdado {
+public class Herdado {
 
 }
