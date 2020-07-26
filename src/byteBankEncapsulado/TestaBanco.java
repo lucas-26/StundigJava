@@ -1,6 +1,6 @@
 package byteBankEncapsulado;
 
-public class testaBanco {
+public class TestaBanco {
 
 	public static void main(String[] args) {
 		Titular lucas = new Titular("Lucas", "182.199.918-13", "Desenvolvedor");
