@@ -1,12 +1,26 @@
-package ByteBankHerdadoConta;
+package br.com.byteBank.banco.modelo;
+
+/**
+* Classe representa a moldura de uma conta
+*
+*@author Lucas Araujo
+*
+*/
 
 public abstract class Conta implements Tributavel {
 
-    private double saldo;
+    double saldo; //se o atributo for declarado assim ele só será visível dento do pacote modelo
     private int agencia;
     private int numero;
     private Titular titular;
     private static int total = 0;
+    
+    /**
+    * Construtor para inicializar o objeto a partir da agencia e numero.
+    *
+    *@param agencia
+    *@param numero
+    */
 
     public Conta(int agencia, int numero){
         Conta.total++;
@@ -18,6 +32,13 @@ public abstract class Conta implements Tributavel {
     }
 
     public abstract void deposita(double valor);
+    
+    /**
+    *
+    *
+    *@param valor
+    *@throws SaldoInsuficienteException
+    */
 
     public void saca(double valor) throws SaldoUnsuficienteException2{
         if(this.saldo <= valor) {
