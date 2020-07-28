@@ -1,4 +1,6 @@
-package ByteBankHerdadoConta;
+package br.com.byteBank.banco.teste;
+
+import br.com.byteBank.banco.modelo.*;
 
 public class TesteTributavel {
 

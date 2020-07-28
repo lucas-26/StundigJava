@@ -1,4 +1,4 @@
-package ByteBankHerdadoConta;
+package br.com.byteBank.banco.modelo;
 
 public abstract class Conta implements Tributavel {
 
