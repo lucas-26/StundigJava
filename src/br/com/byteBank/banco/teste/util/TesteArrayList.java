@@ -4,12 +4,14 @@ import java.util.ArrayList;
 
 import br.com.byteBank.banco.modelo.*;
 
-public class Teste {
+public class TesteArrayList {
 
 	public static void main(String[] args) {
 		
 	
-		 ArrayList lista = new ArrayList();
+		 ArrayList<Conta> lista = new ArrayList<Conta>();
+		 
+		 ArrayList<String> nomes = new ArrayList<String>();
 
          Conta cc = new ContaCorrente(22, 11);
          lista.add(cc);

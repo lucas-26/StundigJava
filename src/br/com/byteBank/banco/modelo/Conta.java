@@ -1,6 +1,6 @@
 package br.com.byteBank.banco.modelo;
 
-public abstract class Conta implements Tributavel {
+public abstract class Conta extends Object implements Tributavel {
 
     private double saldo;
     private int agencia;
@@ -31,8 +31,20 @@ public abstract class Conta implements Tributavel {
             	this.saldo -= valor;
         	}
         }
-        
-        
+    }
+    
+    @Override
+    public boolean equals(Object ref) {
+    	Conta Outra = (Conta)ref;
+    	if(this.agencia != Outra.agencia) {
+    		return false;
+    	}
+    	
+    	if(this.numero != Outra.numero) {
+    		return false;
+    	}
+    	
+    	return true;
     }
 
     public void transfere(double valor, Conta destino) throws SaldoUnsuficienteException2{
