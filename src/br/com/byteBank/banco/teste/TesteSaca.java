@@ -1,6 +1,6 @@
 package br.com.byteBank.banco.teste;
-
 import br.com.byteBank.banco.modelo.*;
+import br.com.byteBank.banco.modelo.ContaCorrente;
 
 public class TesteSaca {
 

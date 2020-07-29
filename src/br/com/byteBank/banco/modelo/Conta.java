@@ -1,16 +1,29 @@
 package br.com.byteBank.banco.modelo;
+/**
+* Classe representa a moldura de uma conta
+*
+*@author Lucas Araujo
+*
+*/
 
 public abstract class Conta extends Object implements Tributavel {
 
-    private double saldo;
+    double saldo; //se o atributo for declarado assim ele só será visível dento do pacote modelo
     private int agencia;
     private int numero;
     private Titular titular;
     private static int total = 0;
+    
+    /**
+    * Construtor para inicializar o objeto a partir da agencia e numero.
+    *
+    *@param agencia
+    *@param numero
+    */
 
     public Conta(int agencia, int numero){
         Conta.total++;
-        System.out.println("O total de contas � " + Conta.total);
+        System.out.println("O total de contas é " + Conta.total);
         this.agencia = agencia;
         this.numero = numero;
         this.saldo = 100;
@@ -18,14 +31,21 @@ public abstract class Conta extends Object implements Tributavel {
     }
 
     public abstract void deposita(double valor);
+    
+    /**
+    *
+    *
+    *@param valor
+    *@throws SaldoInsuficienteException
+    */
 
     public void saca(double valor) throws SaldoUnsuficienteException2{
         if(this.saldo <= valor) {
-        	throw new SaldoUnsuficienteException("Saldo insuficiente, seu saldo � " + this.saldo);
+        	throw new SaldoUnsuficienteException("Saldo insuficiente, seu saldo é " + this.saldo);
         } 
         else {
         	if(this.saldo < saldo) {
-        		throw new SaldoUnsuficienteException2("Saldo insuficiente, seu saldo � " + this.saldo);
+        		throw new SaldoUnsuficienteException2("Saldo insuficiente, seu saldo é " + this.saldo);
         	}else {
 
             	this.saldo -= valor;
