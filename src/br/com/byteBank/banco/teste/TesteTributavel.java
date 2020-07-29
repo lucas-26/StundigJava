@@ -1,5 +1,5 @@
 package br.com.byteBank.banco.teste;
-
+import br.com.byteBank.banco.modelo.*;
 import br.com.byteBank.banco.modelo.CalculadorImposto;
 import br.com.byteBank.banco.modelo.ContaCorrente;
 import br.com.byteBank.banco.modelo.SeguroDeVida;

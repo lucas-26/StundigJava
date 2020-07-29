@@ -1,5 +1,4 @@
 package br.com.byteBank.banco.modelo;
-
 /**
 * Classe representa a moldura de uma conta
 *
@@ -7,9 +6,9 @@ package br.com.byteBank.banco.modelo;
 *
 */
 
-public abstract class Conta implements Tributavel {
+public abstract class Conta extends Object implements Tributavel {
 
-    double saldo; //se o atributo for declarado assim ele sÛ ser· visÌvel dento do pacote modelo
+    double saldo; //se o atributo for declarado assim ele s√≥ ser√° vis√≠vel dento do pacote modelo
     private int agencia;
     private int numero;
     private Titular titular;
@@ -24,7 +23,7 @@ public abstract class Conta implements Tributavel {
 
     public Conta(int agencia, int numero){
         Conta.total++;
-        System.out.println("O total de contas È " + Conta.total);
+        System.out.println("O total de contas √© " + Conta.total);
         this.agencia = agencia;
         this.numero = numero;
         this.saldo = 100;
@@ -42,18 +41,30 @@ public abstract class Conta implements Tributavel {
 
     public void saca(double valor) throws SaldoUnsuficienteException2{
         if(this.saldo <= valor) {
-        	throw new SaldoUnsuficienteException("Saldo insuficiente, seu saldo È " + this.saldo);
+        	throw new SaldoUnsuficienteException("Saldo insuficiente, seu saldo √© " + this.saldo);
         } 
         else {
         	if(this.saldo < saldo) {
-        		throw new SaldoUnsuficienteException2("Saldo insuficiente, seu saldo È " + this.saldo);
+        		throw new SaldoUnsuficienteException2("Saldo insuficiente, seu saldo √© " + this.saldo);
         	}else {
 
             	this.saldo -= valor;
         	}
         }
-        
-        
+    }
+    
+    @Override
+    public boolean equals(Object ref) {
+    	Conta Outra = (Conta)ref;
+    	if(this.agencia != Outra.agencia) {
+    		return false;
+    	}
+    	
+    	if(this.numero != Outra.numero) {
+    		return false;
+    	}
+    	
+    	return true;
     }
 
     public void transfere(double valor, Conta destino) throws SaldoUnsuficienteException2{
