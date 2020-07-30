@@ -1,15 +1,12 @@
 package br.com.byteBank.banco.teste.util;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 
-import br.com.byteBank.banco.modelo.Conta;
-
-public class Teste {
+public abstract class TesteOutrosWrappers {
 
 	public static void main(String[] args) {
-		// 
+
         Integer idadeRef = Integer.valueOf(29); //autoboxing
         System.out.println(idadeRef.intValue()); //unboxing
 
@@ -25,8 +22,7 @@ public class Teste {
         lista.add(10);
         lista.add(32.6);
         lista.add(25.6f);
-        
-       
+
 	}
 
 }
