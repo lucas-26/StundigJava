@@ -1,6 +1,7 @@
 package br.com.byteBank.banco.teste.util;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
@@ -49,17 +50,29 @@ public class TesteOrdenaString {
          }
 
          NumeroDaCaontaComparator comparator = new NumeroDaCaontaComparator();
-
+         
+         TitularComparator compareString = new TitularComparator();
+         
+         lista.sort(comparator);//ordena pela conta
+         
          System.out.println("---------");
 
          for (Conta conta : lista) {
                  System.out.println(conta);
          }
-
-         lista.sort(comparator);
-
-         }
+         
+	 	System.out.println("---------");
+	 	
+	 	lista.sort(compareString);//ordena pelo nome do titular
+	 		
+	    for (Conta conta : lista) {
+        System.out.println(conta);
+        }
+	    
+	}
+	 
 }
+
 
 class NumeroDaCaontaComparator implements Comparator<Conta> {
 
@@ -76,4 +89,15 @@ class NumeroDaCaontaComparator implements Comparator<Conta> {
 
 		return 0;
 	}
+}
+
+class TitularComparator implements Comparator<Conta> {
+
+	@Override
+	public int compare(Conta o1, Conta o2) {
+		String nome1 = o1.getTitular().getNome();
+		String nome2 = o2.getTitular().getNome();
+		return nome1.compareTo(nome1);
+	}
+	
 }
