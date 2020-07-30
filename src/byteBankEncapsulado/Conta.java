@@ -1,6 +1,6 @@
 package byteBankEncapsulado;
 
-public class Conta { //Uma classe contem atributos(Caracteristica de um objeto) e comportamentos
+public class Conta extends Object implements Comparable { //Uma classe contem atributos(Caracteristica de um objeto) e comportamentos
 	
 	private double saldo;
 	private int agencia;
@@ -62,6 +62,12 @@ public class Conta { //Uma classe contem atributos(Caracteristica de um objeto) 
 	public Titular getTitular() {
 		return titular;
 	}
+
+	@Override
+	public int compareTo(Object outra) {
+		Conta a = (Conta) outra;
 		
+		return Double.compare(this.saldo, a.saldo);
+	}
 	
 }
