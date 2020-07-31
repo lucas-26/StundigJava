@@ -1,6 +1,5 @@
 package java.io;
 
-import java.util.Arrays;
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -8,7 +7,7 @@ public class TesteLeitura2 {
 
 	public static void main(String[] args) throws IOException {
 		
-		Scanner re = new Scanner(new File("contas.csv"));
+		Scanner re = new Scanner(new File("contas.csv"), "UTF-8");
 		while (re.hasNext()) {
 			String linha = re.nextLine();
 			System.out.println(linha);
@@ -17,13 +16,14 @@ public class TesteLeitura2 {
 			linhas.useLocale(Locale.US);
 			linhas.useDelimiter(",");
 			
-			String valor1 = linhas.next();
-			int valor2 = linhas.nextInt();
-			int valor3 = linhas.nextInt();
-			String valor4 = linhas.next();
-			double valor5 = linhas.nextDouble();
+			String tipoConta = linhas.next();
+			int agencia = linhas.nextInt();
+			int numero = linhas.nextInt();
+			String titular = linhas.next();
+			double saldo = linhas.nextDouble();
 			
-			  System.out.println(valor1 + valor2 + valor3 + valor4 + valor5);
+			  System.out.format(new Locale("pt", "BR"), "%s - %04d-%08d, %20s: %05.2f %n", 
+                      tipoConta, agencia, numero, titular, saldo);
 			  
 			  linhas.close();
 			

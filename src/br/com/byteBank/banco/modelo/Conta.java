@@ -1,4 +1,7 @@
 package br.com.byteBank.banco.modelo;
+
+import java.io.Serializable;
+
 /**
 * Classe representa a moldura de uma conta
 *
@@ -6,12 +9,13 @@ package br.com.byteBank.banco.modelo;
 *
 */
 
-public abstract class Conta extends Object implements Tributavel {
+public abstract class Conta extends Object implements Tributavel, Serializable {
 
     double saldo; //se o atributo for declarado assim ele s√≥ ser√° vis√≠vel dento do pacote modelo
     private int agencia;
     private int numero;
     private Titular titular;
+    //transient Titular titular; ao colocar o "transient" n„o È necess·rio colocar um serial na classe titular
     private static int total = 0;
     
     /**
