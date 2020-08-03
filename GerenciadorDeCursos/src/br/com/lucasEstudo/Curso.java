@@ -1,14 +1,19 @@
 package br.com.lucasEstudo;
 
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Set;
+
+import javax.swing.text.StyledEditorKit.BoldAction;
 
 public class Curso {
 	
 	private String nome;
 	private String instrutor;
 	private List<Aula> aulas = new LinkedList<Aula>();
+	private Set<Aluno> alunos = new HashSet<>();
 	
 	public String getNome() {
 		return nome;
@@ -19,11 +24,11 @@ public class Curso {
 	}
 
 	public List<Aula> getAulas() {
-		return Collections.unmodifiableList(aulas);// aqui quando o metódo é chamado será enviado uma lista "read only" não poderá ser alterado nem deletado nenhum valor
+		return Collections.unmodifiableList(aulas);// aqui quando o metï¿½do ï¿½ chamado serï¿½ enviado uma lista "read only" nï¿½o poderï¿½ ser alterado nem deletado nenhum valor
 	}
 
 	public Curso(String nome, String instrutor) {
-		super();
+		
 		this.nome = nome;
 		this.instrutor = instrutor;
 	}
@@ -33,7 +38,7 @@ public class Curso {
 	}
 	
 	public int getTempoTotal() {
-		return this.aulas.stream().mapToInt(Aula::getTempo).sum();//esse método retorna o tempo de soma das aulas desse curso
+		return this.aulas.stream().mapToInt(Aula::getTempo).sum();//esse mï¿½todo retorna o tempo de soma das aulas desse curso
 	}
 	
 	  @Override
@@ -41,12 +46,24 @@ public class Curso {
 	        return "[Curso: " + this.getNome() + ", tempo total: " + this.getTempoTotal()
 	                + ", aulas: + " + this.aulas + "]";
 	    }
+
+	public void matricula(Aluno aluno) {
+		this.alunos.add(aluno);
+		
+	}
 	
-//	public int getTempoTotal() { esse método faz exatamente o mesmo do método que está na linha 35 tem uma implementação muito mais curta
+	public Set<Aluno> getAlunos(){
+		return Collections.unmodifiableSet(this.alunos);
+	}
+//	public int getTempoTotal() { esse mï¿½todo faz exatamente o mesmo do mï¿½todo que estï¿½ na linha 35 tem uma implementaï¿½ï¿½o muito mais curta
 //	    int tempoTotal = 0;
 //	    for (Aula aula : aulas) {
 //	        tempoTotal += aula.getTempo();
 //	    }
 //	    return tempoTotal;
 //	}
+
+	public boolean estaMatriculado(Aluno aluno) {
+		return this.alunos.contains(aluno);
+	}
 }
