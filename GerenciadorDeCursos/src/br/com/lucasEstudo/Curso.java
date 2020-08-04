@@ -1,12 +1,14 @@
-package br.com.lucasEstudo;
+ package br.com.lucasEstudo;
 
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
+import java.util.NoSuchElementException;
 import java.util.Set;
-
-import javax.swing.text.StyledEditorKit.BoldAction;
 
 public class Curso {
 	
@@ -14,6 +16,9 @@ public class Curso {
 	private String instrutor;
 	private List<Aula> aulas = new LinkedList<Aula>();
 	private Set<Aluno> alunos = new HashSet<>();
+	private Set<Aluno> alunoas = new LinkedHashSet<>();//diferente do hash set esse objeto retorna o conjunto respeitando a ordem de insercao dos elementos.
+	private Map<Integer, Aluno> matriculaParaAluno = new HashMap<>();
+	
 	
 	public String getNome() {
 		return nome;
@@ -48,10 +53,16 @@ public class Curso {
 	    }
 
 	public void matricula(Aluno aluno) {
-		this.alunos.add(aluno);
+		this.alunos.add(aluno); //cadastrando um novo aluno 
+		//Em um Hash map usamos put para inserir uma valor como o add em collection
+		this.matriculaParaAluno.put(aluno.getNumeroMatricula(), aluno);//fazendo referencia do numero matricula e do aluno usando um hash map pois e mais performatico
 		
 	}
 	
+	public Map<Integer, Aluno> getMatriculaParaAluno() {
+		return matriculaParaAluno;
+	}
+
 	public Set<Aluno> getAlunos(){
 		return Collections.unmodifiableSet(this.alunos);
 	}
@@ -66,4 +77,14 @@ public class Curso {
 	public boolean estaMatriculado(Aluno aluno) {
 		return this.alunos.contains(aluno);
 	}
+
+	public Aluno buscaMatriculado(int numero) {
+//		for (Aluno aluno : alunoas) {
+//			if(aluno.getNumeroMatricula() == numero) {
+//				return aluno;
+//			}
+//		}
+//		throw new NoSuchElementException("matricula " + numero + "nao encontrado");
+		return this.matriculaParaAluno.get(numero);
+		}
 }

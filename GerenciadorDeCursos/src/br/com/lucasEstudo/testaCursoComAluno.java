@@ -1,8 +1,23 @@
 package br.com.lucasEstudo;
 
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashSet;
+
 public class testaCursoComAluno {
 
 	public static void main(String[] args) {
+		//List e uma sequencia e aceita elementos duplicados
+		//set nao aceita duplicados e nao define ordem
+		
+		//Caso nao saber como declarar entao use collection pois e o mais generico possivel
+		
+		//Collection<Aluno> aluno = new List<>();//errado
+		//List<Aluno> alunos = new ArrayList<>();//certo
+		//List<Aluno> alunos = new Collection();//errado
+		//ArrayList<Aluno> alunos = new ArrayList<>();//correto
+		//Collection<Aluno> alunos = new HashSet<>();//correto
 		
 		Curso javaColecoes = new Curso("Dominando as colecoes do Java", "Paulo Silveira"); 
 		
