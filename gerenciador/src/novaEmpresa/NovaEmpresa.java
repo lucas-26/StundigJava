@@ -1,4 +1,4 @@
-package novaEmpresa;
+	package novaEmpresa;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -17,6 +17,11 @@ public class NovaEmpresa extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		PrintWriter out = resp.getWriter();
 		String nome = req.getParameter("nome");
+		Empresa empresa = new Empresa();
+		
+		Banco banco = new Banco();
+		banco.adiciona(empresa);
+		
 		out.println("<html><body> Empresa " + nome + " cadastrada com sucesso </body></html>");
 	}
 }
