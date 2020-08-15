@@ -16,16 +16,16 @@ public class NovaEmpresa extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-		PrintWriter out = resp.getWriter();
-		String nome = req.getParameter("nome");
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+		PrintWriter out = response.getWriter();
+		String nome = request.getParameter("nome");
 		Empresa empresa = new Empresa();
 		
 		Banco banco = new Banco();
 		banco.adiciona(empresa);
 		
-		RequestDispatcher rd = req.getRequestDispatcher("NovEmpresaCriada.jsp");
-		req.setAttribute("empresa", empresa.getNome());
-		rd.forward(req, resp);
+		RequestDispatcher rd = request.getRequestDispatcher("NovEmpresaCriada.jsp");
+		request.setAttribute("empresa", empresa.getNome());
+		rd.forward(request, response);
 	}
 }
