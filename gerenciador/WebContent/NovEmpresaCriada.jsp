@@ -8,6 +8,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	Empresa <%= nomeEmpresa %> cadastrada com sucesso.
+	<h1>Empresa <%= nomeEmpresa %> cadastrada com sucesso.</h1>
 </body>
 </html>
