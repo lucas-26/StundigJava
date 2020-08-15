@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<% String nomeEmpresa = (String)request.getAttribute("empresa");%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,6 +8,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>Empresa <%= nomeEmpresa %> cadastrada com sucesso.</h1>
+	<c:if test= "${not empty empresa}">
+            Empresa ${ empresa } cadastrada com sucesso!
+        </c:if>
+        
+       <c:if test= "${not empty empresa}">
+            Empresa ${ empresa } cadastrada com sucesso!
+        </c:if>
 </body>
 </html>
