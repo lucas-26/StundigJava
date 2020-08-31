@@ -9,11 +9,16 @@
 <body>
 <c:url url="/novaEmpresa/">
 
-	<form action="${linkServletNovaEmpresa}" method="post">
-		<h1>Nome:</h1> <input type="text" name="empresa">
-		Data Abertura: <input type="text" name="data" />
-		<input type="submit">
-	</form>
+	
+    <form action="${linkEntradaServlet }" method="post">
+
+        Nome: <input type="text" name="nome"  />
+        Data Abertura: <input type="text" name="data"  />
+
+        <input type="hidden" name="acao" value="NovaEmpresa" /> 
+
+        <input type="submit" />
+    </form>
 
 </body>
 </html>

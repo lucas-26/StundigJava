@@ -39,7 +39,12 @@ public class AlteraEmpresaServelet extends HttpServlet {
 		empresa.setDataAbertura(dataAbertura);
 		
 		
-		response.sendRedirect("ListaEmpresa.jsp");
+		response.sendRedirect("entrada?acao=ListaEmpresas");	
+	}
+
+	public void executa(HttpServletRequest request, HttpServletResponse response) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
