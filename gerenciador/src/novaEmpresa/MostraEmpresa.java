@@ -7,16 +7,17 @@ import javax.servlet.http.HttpServletResponse;
 
 public class MostraEmpresa {
 
-	public void executa(HttpServletRequest request, HttpServletResponse response) throws IOException {
+	public String executa(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		
 		String paramId = request.getParameter("id");
         Integer id = Integer.valueOf(paramId);
         
         Banco banco = new Banco();
-        banco.removeEmpresa(id);
-
-        response.sendRedirect("listaEmpresas");
-		
+        Empresa empresa = banco.buscaEmpresapeloId(id);
+        
+        request.setAttribute("empresa", empresa);
+        
+        return "forward:/formAlteraEmpresa.jsp";
 	}
 
 }
