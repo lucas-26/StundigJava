@@ -42,8 +42,8 @@ public class AlteraEmpresaServelet extends HttpServlet {
 		response.sendRedirect("entrada?acao=ListaEmpresas");	
 	}
 
-	public void executa(HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
+	public String executa(HttpServletRequest request, HttpServletResponse response) {
+		return "executa";
 		
 	}
 

@@ -52,7 +52,7 @@ public class NovaEmpresa extends HttpServlet {
 //		rd.forward(request, response);
 	}
 
-	public void executa(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+	public String executa(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		String nomeEmpresa = request.getParameter("nome");
         String paramDataEmpresa = request.getParameter("data");
 
@@ -73,7 +73,7 @@ public class NovaEmpresa extends HttpServlet {
 
         request.setAttribute("empresa", empresa.getNome());
 
-        response.sendRedirect("entrada?acao=ListaEmpresas");
+        return "redirect:entrada?acao=ListaEmpresas";
 		
 	}
 }

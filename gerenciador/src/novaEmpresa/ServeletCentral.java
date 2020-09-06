@@ -2,6 +2,7 @@ package novaEmpresa;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,23 +19,36 @@ public class ServeletCentral extends HttpServlet {
 	 protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		 
 		 String parametroAcao = request.getParameter("acao");
+		 String nome = null;
 		 
 		  if(parametroAcao.equals("ListaEmpresas")) {
 			    ListaEmpresas acao = new ListaEmpresas();
-			    acao.executa(request, response);
-	        } else if(parametroAcao.equals("RemoveEmpresa")) {
-	        	 	RemoveEmpresa acao = new RemoveEmpresa();
-	        	    acao.executa(request, response);
-	        } else if(parametroAcao.equals("MostraEmpresa")) {
+			    nome = acao.executa(request, response);
+	        } else 
+	        	if(parametroAcao.equals("RemoveEmpresa")) {
+	        	 	RemoveEmpresaServelet acao = new RemoveEmpresaServelet();
+	        	    nome = acao.executa(request, response);
+	        } else 
+	        	if(parametroAcao.equals("MostraEmpresa")) {
 	        	MostraEmpresa acao = new MostraEmpresa();
-	            acao.executa(request, response);
-	        } else if (parametroAcao.equals("AlteraEmpresa")) {
+	            nome = acao.executa(request, response);
+	        } else 
+	        	if (parametroAcao.equals("AlteraEmpresa")) {
 		    AlteraEmpresaServelet acao = new AlteraEmpresaServelet();
-		    acao.executa(request, response);
-	        } else if (parametroAcao.equals("NovaEmpresa")) {
+		    nome = acao.executa(request, response);
+	        } else 
+	        	if (parametroAcao.equals("NovaEmpresa")) {
 	            NovaEmpresa acao = new NovaEmpresa();
-	            acao.executa(request, response);
+	            nome = acao.executa(request, response);
 	    } 
+		  String[] tipoEndereco = nome.split(":");
+		  if(tipoEndereco[0].equals("forward")) {
+			  RequestDispatcher rd = request.getRequestDispatcher(tipoEndereco[1]);
+				rd.forward(request, response);
+		  }
+		  else {
+			  response.sendRedirect(tipoEndereco[1]);
+		  }
 		 
 	 }
 

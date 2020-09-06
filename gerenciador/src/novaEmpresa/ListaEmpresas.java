@@ -10,13 +10,15 @@ import javax.servlet.http.HttpServletResponse;
 
 public class ListaEmpresas {
 	
-	public void executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public String executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Banco banco = new Banco();
 		List<Empresa> lista = banco.getEmpresa();
 		
 		request.setAttribute("empresas", lista);
 		RequestDispatcher rd = request.getRequestDispatcher("/ListaNovaEmpresa.jsp");
 		rd.forward(request, response);
+		
+		return "ListaEmpresas.jsp";
 	}
 
 }
